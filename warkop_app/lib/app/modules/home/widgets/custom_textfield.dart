@@ -14,23 +14,22 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: TextField(
-        controller: controller,
-        obscureText: isPassword,
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.grey),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.amberAccent.shade100),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.amberAccent.shade100),
-            borderRadius: BorderRadius.circular(12),
-          ),
+    return TextField(
+      controller: controller,
+      obscureText: isPassword,
+      style: const TextStyle(color: Colors.white), // Warna teks input putih
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle:
+            const TextStyle(color: Colors.grey), // Warna hint text abu-abu
+        filled: true,
+        fillColor: Colors.white12, // Latar belakang input semi-transparan
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide.none,
         ),
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
       ),
     );
   }

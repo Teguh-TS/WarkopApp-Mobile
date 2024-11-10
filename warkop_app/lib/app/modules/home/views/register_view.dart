@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/auth_controller.dart';
 import '../widgets/custom_textfield.dart';
 
@@ -9,11 +10,8 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AuthController controller = Get.put(AuthController());
-    final firstNameController = TextEditingController();
-    final lastNameController = TextEditingController();
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
-    final confirmPasswordController = TextEditingController();
 
     return Scaffold(
       backgroundColor: Colors.black87,
@@ -22,43 +20,29 @@ class RegisterView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: CustomTextField(
-                    hintText: 'First Name',
-                    controller: firstNameController,
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: CustomTextField(
-                    hintText: 'Last Name',
-                    controller: lastNameController,
-                  ),
-                ),
-              ],
+            CustomTextField(
+              hintText: 'Email',
+              controller: emailController,
             ),
-            CustomTextField(hintText: 'Email', controller: emailController),
             CustomTextField(
-                hintText: 'Password',
-                controller: passwordController,
-                isPassword: true),
-            CustomTextField(
-                hintText: 'Password Confirm',
-                controller: confirmPasswordController,
-                isPassword: true),
+              hintText: 'Password',
+              controller: passwordController,
+              isPassword: true,
+            ),
             const SizedBox(height: 20),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 185, 27, 16),
+                foregroundColor: const Color.fromARGB(255, 241, 217, 130),
+              ),
               onPressed: () {
-                controller.firstName.value = firstNameController.text;
-                controller.lastName.value = lastNameController.text;
                 controller.email.value = emailController.text;
                 controller.password.value = passwordController.text;
-                controller.confirmPassword.value =
-                    confirmPasswordController.text;
                 controller.register();
+                if (controller.firebaseUser.value != null) {
+                  Get.toNamed(Routes
+                      .LOGIN); // Menggunakan GetX untuk navigasi ke LoginView
+                }
               },
               child: const Text('Register'),
             ),

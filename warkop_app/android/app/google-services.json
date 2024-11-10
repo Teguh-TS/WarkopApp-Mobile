@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "205449264007",
+    "project_id": "warkop-database",
+    "storage_bucket": "warkop-database.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205449264007:android:5daf1cd07cba570574f122",
+        "android_client_info": {
+          "package_name": "com.example.warkop_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPiTqfRm5KQZZV_rmgjrlrpidAMi5Vrf4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
