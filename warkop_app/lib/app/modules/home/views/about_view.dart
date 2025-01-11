@@ -44,18 +44,6 @@ class AboutView extends StatelessWidget {
             ),
           ),
 
-          // Ikon notifikasi
-          Positioned(
-            top: 40,
-            right: 16,
-            child: IconButton(
-              icon: const Icon(Icons.notifications, color: Colors.brown),
-              onPressed: () {
-                // Tambahkan aksi notifikasi jika diperlukan
-              },
-            ),
-          ),
-
           // Konten utama AboutView
           Center(
             child: Column(
@@ -63,7 +51,7 @@ class AboutView extends StatelessWidget {
               children: [
                 // Gambar logo aplikasi
                 Image.asset(
-                  'lib/assets/logo2.png', // Ganti dengan logo yang Anda miliki di folder assets
+                  'lib/assets/logo2.png',
                   height: 100,
                 ),
                 const SizedBox(height: 16),

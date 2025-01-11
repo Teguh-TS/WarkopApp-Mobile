@@ -26,16 +26,56 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: Colors.black87,
       appBar: AppBar(
         backgroundColor: Colors.brown,
+        foregroundColor: Colors.white,
         elevation: 0,
-        title: Obx(() => Text('User: ${controller.userName.value}')),
+        title: Obx(() => Text('Selamat Datang, ${controller.userName.value}')),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications))
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: IconButton(
+              icon: const Icon(Icons.account_circle),
+              color: Colors.white,
+              onPressed: () {
+                _showProfileMenu(context);
+              },
+            ),
+          ),
         ],
       ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
             children: [
+              // Buttons for "Cek Promo" and "Booking Sekarang"
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Get.toNamed('/event'); // Navigate to EventPage
+                      },
+                      child: Text("Cek Promo"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange, // Set button color
+                        foregroundColor: Colors.white,
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Get.toNamed('/booking'); // Navigate to BookingView
+                      },
+                      child: Text("Booking Sekarang"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green, // Set button color
+                        foregroundColor: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               // Banner Carousel
               Container(
                 height: 150,
@@ -59,6 +99,18 @@ class _HomeViewState extends State<HomeView> {
                   scrollDirection: Axis.horizontal,
                   children: [
                     ProductCard(
+                        imageUrl: 'lib/assets/kopi-hitam.png',
+                        title: 'Kopi Hitam',
+                        price: 'Rp. 10.000'),
+                    ProductCard(
+                        imageUrl: 'lib/assets/espresso.png',
+                        title: 'Espresso',
+                        price: 'Rp. 16.000'),
+                    ProductCard(
+                        imageUrl: 'lib/assets/stmj.jpg',
+                        title: 'STMJ',
+                        price: 'Rp. 12.000'),
+                    ProductCard(
                         imageUrl: 'lib/assets/black-tea.png',
                         title: 'Teh Hitam',
                         price: 'Rp. 15.000'),
@@ -70,6 +122,18 @@ class _HomeViewState extends State<HomeView> {
                         imageUrl: 'lib/assets/green-tea.png',
                         title: 'Teh Hijau',
                         price: 'Rp. 10.000'),
+                    ProductCard(
+                        imageUrl: 'lib/assets/coklat.png',
+                        title: 'Ice Cocholate',
+                        price: 'Rp. 17.000'),
+                    ProductCard(
+                        imageUrl: 'lib/assets/matcha.png',
+                        title: 'Ice Matcha',
+                        price: 'Rp. 17.000'),
+                    ProductCard(
+                        imageUrl: 'lib/assets/taro.jpg',
+                        title: 'Ice Taro',
+                        price: 'Rp. 18.000'),
                   ],
                 ),
               ),
@@ -130,6 +194,65 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
       bottomNavigationBar: CustomBottomNavbar(),
+    );
+  }
+
+  void _showProfileMenu(BuildContext context) {
+    final RenderBox button = context.findRenderObject() as RenderBox;
+    final position =
+        button.localToGlobal(Offset.zero); // Position of the button
+
+    showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(
+          position.dx, position.dy + 50, position.dx - 100, position.dy + 200),
+      items: [
+        PopupMenuItem(
+          child: Column(
+            children: [
+              // Menampilkan informasi profil di dalam kotak persegi
+              Obx(() => Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      children: [
+                        Icon(Icons.person, size: 50, color: Colors.black),
+                        SizedBox(height: 10),
+                        Text(
+                          controller.userName.value,
+                          style: TextStyle(fontSize: 18, color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  )),
+            ],
+          ),
+        ),
+        PopupMenuItem(
+          child: ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
+            onTap: () {
+              Navigator.pop(context);
+              Get.toNamed('/setting'); // Navigasi ke SettingView
+            },
+          ),
+        ),
+        PopupMenuItem(
+          child: ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text('Logout'),
+            onTap: () {
+              controller.logout();
+              Navigator.pop(context);
+              Get.offNamed('/welcome'); // Navigasi ke WelcomeView
+            },
+          ),
+        ),
+      ],
     );
   }
 }

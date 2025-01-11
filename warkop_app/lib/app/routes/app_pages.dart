@@ -1,9 +1,16 @@
 import 'package:get/get.dart';
 import 'package:warkop_app/app/modules/home/views/about_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_view.dart';
+import 'package:warkop_app/app/modules/home/views/booking_view.dart';
+import 'package:warkop_app/app/modules/home/views/dashboard_view.dart';
+import 'package:warkop_app/app/modules/home/views/event_page.dart';
 import 'package:warkop_app/app/modules/home/views/login_view.dart';
 import 'package:warkop_app/app/modules/home/views/menu_view.dart';
 import 'package:warkop_app/app/modules/home/views/order_view.dart';
+import 'package:warkop_app/app/modules/home/views/profile_view.dart';
 import 'package:warkop_app/app/modules/home/views/register_view.dart';
+import 'package:warkop_app/app/modules/home/views/review_view.dart';
+import 'package:warkop_app/app/modules/home/views/setting_view.dart';
 import 'package:warkop_app/app/modules/home/views/welcome_view.dart';
 import 'package:warkop_app/app/modules/home/views/home_view.dart';
 
@@ -45,8 +52,20 @@ class AppPages {
       }),
     ),
     GetPage(
+      name: _Paths.ADMIN,
+      page: () => AdminView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.DASHBOARD,
+      page: () => DashboardView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
       name: _Paths.MENU,
-      page: () => MenuView(),
+      page: () => MenuView(
+        selectedMenus: [],
+      ),
       binding: HomeBinding(),
     ),
     GetPage(
@@ -56,7 +75,34 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.ORDER,
-      page: () => OrderView(),
+      page: () => OrderView(
+        selectedMenus: [],
+      ),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTING,
+      page: () => SettingView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.EVENT,
+      page: () => EventPage(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => ProfileView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.REVIEW,
+      page: () => ReviewView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOKING,
+      page: () => BookingView(),
       binding: HomeBinding(),
     ),
   ];

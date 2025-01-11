@@ -1,37 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MenuItemCard extends StatelessWidget {
   final String title;
   final String price;
-  final String imageUrl;
+  final VoidCallback? onTap;
+  final VoidCallback? onLongPress;
 
-  MenuItemCard(
-      {required this.title, required this.price, required this.imageUrl});
+  MenuItemCard({
+    required this.title,
+    required this.price,
+    this.onTap,
+    this.onLongPress,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Row(
-        children: [
-          Image.asset(
-            imageUrl,
-            width: 100,
-            height: 100,
-            fit: BoxFit.cover,
-          ),
-          SizedBox(width: 16),
-          Column(
+    return GestureDetector(
+      onTap: onTap,
+      onLongPress: onLongPress,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 title,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              Text(price),
+              const SizedBox(height: 8),
+              Text(
+                'Rp $price',
+                style: const TextStyle(fontSize: 16, color: Colors.grey),
+              ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

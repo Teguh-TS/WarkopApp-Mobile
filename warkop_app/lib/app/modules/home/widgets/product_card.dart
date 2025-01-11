@@ -35,12 +35,12 @@ class ProductCard extends StatelessWidget {
               children: [
                 Text(title, style: const TextStyle(color: Colors.white)),
                 Text(price, style: const TextStyle(color: Colors.white)),
-                ElevatedButton(
+                /*ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.redAccent),
                   child: const Text('Order'),
-                ),
+                ),*/
               ],
             ),
           ),
