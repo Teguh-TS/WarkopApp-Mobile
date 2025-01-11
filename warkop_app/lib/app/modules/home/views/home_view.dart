@@ -101,11 +101,11 @@ class _HomeViewState extends State<HomeView> {
                     ProductCard(
                         imageUrl: 'lib/assets/kopi-hitam.png',
                         title: 'Kopi Hitam',
-                        price: 'Rp. 10.000'),
+                        price: 'Rp. 7.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/espresso.png',
                         title: 'Espresso',
-                        price: 'Rp. 16.000'),
+                        price: 'Rp. 20.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/stmj.jpg',
                         title: 'STMJ',
@@ -113,27 +113,27 @@ class _HomeViewState extends State<HomeView> {
                     ProductCard(
                         imageUrl: 'lib/assets/black-tea.png',
                         title: 'Teh Hitam',
-                        price: 'Rp. 15.000'),
+                        price: 'Rp. 5.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/ginger-tea.png',
                         title: 'Teh Jahe',
-                        price: 'Rp. 20.000'),
+                        price: 'Rp. 6.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/green-tea.png',
                         title: 'Teh Hijau',
-                        price: 'Rp. 10.000'),
+                        price: 'Rp. 6.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/coklat.png',
                         title: 'Ice Cocholate',
-                        price: 'Rp. 17.000'),
+                        price: 'Rp. 16.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/matcha.png',
                         title: 'Ice Matcha',
-                        price: 'Rp. 17.000'),
+                        price: 'Rp. 16.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/taro.jpg',
                         title: 'Ice Taro',
-                        price: 'Rp. 18.000'),
+                        price: 'Rp. 17.000'),
                   ],
                 ),
               ),
@@ -151,15 +151,15 @@ class _HomeViewState extends State<HomeView> {
                     ProductCard(
                         imageUrl: 'lib/assets/indomie.png',
                         title: 'Indomie',
-                        price: 'Rp. 10.000'),
+                        price: 'Rp. 9.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/rice-egg.jpg',
                         title: 'Nasi Telur',
-                        price: 'Rp. 15.000'),
+                        price: 'Rp. 10.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/fried-rice.jpg',
                         title: 'Nasi Goreng',
-                        price: 'Rp. 20.000'),
+                        price: 'Rp. 15.000'),
                   ],
                 ),
               ),
@@ -177,15 +177,15 @@ class _HomeViewState extends State<HomeView> {
                     ProductCard(
                         imageUrl: 'lib/assets/toast.png',
                         title: 'Roti Bakar',
-                        price: 'Rp. 12.000'),
+                        price: 'Rp. 10.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/gorengan.png',
                         title: 'Gorengan',
-                        price: 'Rp. 5.000'),
+                        price: 'Rp. 6.000'),
                     ProductCard(
                         imageUrl: 'lib/assets/kentang.png',
-                        title: 'French Fries',
-                        price: 'Rp. 15.000'),
+                        title: 'Kentang Goreng',
+                        price: 'Rp. 11.000'),
                   ],
                 ),
               ),
