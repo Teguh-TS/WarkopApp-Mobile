@@ -7,6 +7,11 @@ abstract class Routes {
   static const REGISTER = _Paths.REGISTER;
   static const LOGIN = _Paths.LOGIN;
   static const ADMIN = _Paths.ADMIN;
+  static const ADMIN_HOME = _Paths.ADMIN_HOME;
+  static const ADMIN_MENU = _Paths.ADMIN_MENU;
+  static const ADMIN_ORDER = _Paths.ADMIN_ORDER;
+  static const ADMIN_ABOUT = _Paths.ADMIN_ABOUT;
+  static const ADMIN_PROFILE = _Paths.ADMIN_PROFILE;
   static const DASHBOARD = _Paths.DASHBOARD;
   static const HOME = _Paths.HOME;
   static const MENU = _Paths.MENU;
@@ -26,6 +31,11 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const HOME = '/home';
   static const ADMIN = '/admin';
+  static const ADMIN_HOME = '/admin-home';
+  static const ADMIN_MENU = '/admin-menu';
+  static const ADMIN_ORDER = '/admin-order';
+  static const ADMIN_ABOUT = '/admin-about';
+  static const ADMIN_PROFILE = '/admin-profile';
   static const DASHBOARD = '/dashboard';
   static const MENU = '/menu';
   static const ABOUT = '/about';

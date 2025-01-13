@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
-// Import halaman lainnya
-import 'home_view.dart';
-import 'menu_view.dart';
-import 'order_view.dart';
-import 'profile_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_about_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_home_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_menu_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_order_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_profile_view.dart';
 import 'dashboard_view.dart'; // Halaman Dashboard baru
 
 class AdminView extends StatefulWidget {
@@ -17,14 +16,15 @@ class _AdminViewState extends State<AdminView> {
 
   final List<Widget> pages = [
     DashboardView(), // Dashboard ditambahkan sebagai halaman pertama
-    HomeView(),
-    MenuView(
+    AdminHomeView(),
+    AdminMenuView(
       selectedMenus: [],
     ),
-    OrderView(
+    AdminOrderView(
       selectedMenus: [],
     ),
-    ProfileView(),
+    AdminAboutView(),
+    AdminProfileView()
   ];
 
   final List<String> pageTitles = [
@@ -32,6 +32,7 @@ class _AdminViewState extends State<AdminView> {
     'Home',
     'Menu',
     'Order',
+    'About',
     'Profile',
   ];
 

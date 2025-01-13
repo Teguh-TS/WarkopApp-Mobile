@@ -1,5 +1,10 @@
 import 'package:get/get.dart';
 import 'package:warkop_app/app/modules/home/views/about_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_about_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_home_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_menu_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_order_view.dart';
+import 'package:warkop_app/app/modules/home/views/admin_profile_view.dart';
 import 'package:warkop_app/app/modules/home/views/admin_view.dart';
 import 'package:warkop_app/app/modules/home/views/booking_view.dart';
 import 'package:warkop_app/app/modules/home/views/dashboard_view.dart';
@@ -54,6 +59,35 @@ class AppPages {
     GetPage(
       name: _Paths.ADMIN,
       page: () => AdminView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_HOME,
+      page: () => AdminHomeView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_MENU,
+      page: () => AdminMenuView(
+        selectedMenus: [],
+      ),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_ORDER,
+      page: () => AdminOrderView(
+        selectedMenus: [],
+      ),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_ABOUT,
+      page: () => AdminAboutView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_PROFILE,
+      page: () => AdminProfileView(),
       binding: HomeBinding(),
     ),
     GetPage(

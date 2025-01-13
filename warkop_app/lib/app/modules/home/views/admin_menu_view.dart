@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import '../widgets/custom_bottom_navbar.dart';
 import 'order_view.dart';
 
-class MenuView extends StatelessWidget {
+class AdminMenuView extends StatelessWidget {
   final List<Map<String, dynamic>> selectedMenus;
 
-  const MenuView({Key? key, required this.selectedMenus}) : super(key: key);
+  const AdminMenuView({Key? key, required this.selectedMenus})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +96,6 @@ class MenuView extends StatelessWidget {
           }
         },
       ),
-      bottomNavigationBar: CustomBottomNavbar(),
     );
   }
 
@@ -109,7 +108,7 @@ class MenuView extends StatelessWidget {
         TextEditingController(text: menu?['nama'] ?? '');
     final TextEditingController priceController =
         TextEditingController(text: menu?['harga']?.toString() ?? '');
-    //final TextEditingController tableNumberController = TextEditingController();
+    final TextEditingController tableNumberController = TextEditingController();
 
     showDialog(
       context: context,
@@ -129,11 +128,11 @@ class MenuView extends StatelessWidget {
                 keyboardType: TextInputType.number,
               ),
               SizedBox(height: 16),
-              /*TextField(
+              TextField(
                 controller: tableNumberController,
                 decoration: const InputDecoration(labelText: 'No. Meja'),
                 keyboardType: TextInputType.number,
-              ),*/
+              ),
             ],
           ),
           actions: [
@@ -145,21 +144,21 @@ class MenuView extends StatelessWidget {
               onPressed: () {
                 final String nama = nameController.text;
                 final int harga = int.tryParse(priceController.text) ?? 0;
-                //final String tableNumber = tableNumberController.text;
+                final String tableNumber = tableNumberController.text;
 
                 if (menu == null) {
                   // Tambah data baru
                   menusCollection.add({
                     'nama': nama,
                     'harga': harga,
-                    //'no_meja': tableNumber,
+                    'no_meja': tableNumber,
                   });
                 } else {
                   // Update data
                   menusCollection.doc(menu.id).update({
                     'nama': nama,
                     'harga': harga,
-                    //'no_meja': tableNumber,
+                    'no_meja': tableNumber,
                   });
                 }
 
